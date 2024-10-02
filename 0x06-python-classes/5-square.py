@@ -13,7 +13,7 @@ class Square:
         Args:
             size (int): The size of the square. Defaults to 0.
         """
-        self.size = size  # Use the setter to validate size upon initiali.
+        self.size = size  # Use the setter to validate size upon initial.
 
     @property
     def size(self):
@@ -41,7 +41,7 @@ class Square:
             raise TypeError("size must be an integer")
         if value < 0:
             raise ValueError("size must be >= 0")
-        self.__size = value  # Set the private size attribute after valid.
+        self.__size = value  # Set the private size attribute after vali.
 
     def area(self):
         """
