@@ -1,21 +1,11 @@
 #!/usr/bin/python3
-"""
-This defines a Rectangle class with methods for area, perimeter,
-and string representation.
-"""
+"""This defines a Rectangle class."""
 
 
 class Rectangle:
-    """This defines a rectangle by its width and height."""
-
+    """This defines a rectangle by its width and height"""  
     def __init__(self, width=0, height=0):
-        """
-        Initializes the rectangle with width and height.
-        
-        Args:
-            width (int): The width of the rectangle. Default is 0.
-            height (int): The height of the rectangle. Default is 0.
-        """
+        """This initializes the rectangle with optional width and height."""
         self.width = width
         self.height = height
 
@@ -58,11 +48,11 @@ class Rectangle:
         return 2 * (self.__width + self.__height)
 
     def __str__(self):
-        """This returns the string representation of the rectangle."""
+        """This returns the rectangle representation using '#'."""
         if self.__width == 0 or self.__height == 0:
             return ""
-        return '\n'.join(['#' * self.__width] * self.__height)
+        return "\n".join(["#" * self.__width] * self.__height)
 
     def __repr__(self):
-        """This returns a string representation of the rectangle for debugging."""
-        return f"{self.__class__.__name__}({self.__width}, {self.__height})"
+        """This returns a string representation of the rectangle object"""
+        return f"<{self.__class__.__name__} object at {hex(id(self))}>"
