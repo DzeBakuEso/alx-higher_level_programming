@@ -3,7 +3,7 @@
 
 
 class Rectangle:
-    """This defines a rectangle by its width and height"""  
+    """This defines a rectangle by its width and height"""
     def __init__(self, width=0, height=0):
         """This initializes the rectangle with optional width and height."""
         self.width = width
