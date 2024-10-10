@@ -57,7 +57,7 @@ class Rectangle:
         return "\n".join(["#" * self.width for _ in range(self.height)])
 
     def __repr__(self):
-        """ Returns the formal string represe to recreate a new instance """
+        """ Returns the formal string represe to ecreate a new instance """
         return "Rectangle({}, {})".format(self.width, self.height)
 
     def __del__(self):
