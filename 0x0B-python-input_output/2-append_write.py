@@ -24,6 +24,6 @@ def append_write(filename, text=""):
     'Hello!\\nNew content.\\n'
     """
     # Using 'with statement to open the file in append mode'
-    with open("file_append.txt" 'a', encoding='utf-8') as file:
+    with open("file_append.txt", 'a', encoding='utf-8') as file:
         # Append the provided text to file and returns number of chaacters add
         return file.write(text)
