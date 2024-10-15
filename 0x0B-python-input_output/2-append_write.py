@@ -5,7 +5,7 @@ and returns the number of characters added.
 """
 
 
-def append.write(filename, text=""):
+def append_write(filename, text=""):
 
     """
     This is customized: Appends a string to the specified file.
