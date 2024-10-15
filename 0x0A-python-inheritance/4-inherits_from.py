@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """
 This module defines the function inherits_from.
 The function determines if an object is an instance
