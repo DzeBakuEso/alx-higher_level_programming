@@ -1,3 +1,4 @@
+#!/usr/bin/python
 """
 This is customized: This function appends a string to a text file (UTF-8)
 and returns the number of characters added.
