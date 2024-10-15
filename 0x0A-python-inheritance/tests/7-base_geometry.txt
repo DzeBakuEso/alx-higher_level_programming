@@ -1,8 +1,8 @@
->>> from 7-base_geometry import BaseGeometry  # Import the class
-
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry  # Importing the class
 >>> bg = BaseGeometry()  # Create an instance of BaseGeometry
->>> bg.integer_validator("age", 10)  # Valid integer
->>> bg.integer_validator("price", 100)  # Another valid integer
+
+>>> bg.integer_validator("my_int", 12)  # Valid integer
+>>> bg.integer_validator("width", 89)  # Valid integer
 
 >>> bg.integer_validator("name", "John")  # Invalid case: string instead of int
 Traceback (most recent call last):
@@ -19,4 +19,3 @@ Traceback (most recent call last):
     ...
 ValueError: distance must be greater than 0
 
->>> bg.integer_validator("width", 42)  # Another valid test
