@@ -40,6 +40,17 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r.x, 10)
         self.assertEqual(r.y, 4)
 
+    def test_area(self):
+        """This tests the area method."""
+        r1 = Rectangle(3, 2)
+        self.assertEqual(r1.area(), 6)
+
+        r2 = Rectangle(2, 10)
+        self.assertEqual(r2.area(), 20)
+
+        r3 = Rectangle(8, 7, 0, 0, 12)
+        self.assertEqual(r3.area(), 56)
+
     def test_invalid_width(self):
         """This tests invalid width."""
         with self.assertRaises(TypeError) as e:
