@@ -3,6 +3,8 @@
 
 import unittest
 from models.rectangle import Rectangle
+from io import StringIO
+import sys
 
 
 class TestRectangle(unittest.TestCase):
@@ -50,6 +52,30 @@ class TestRectangle(unittest.TestCase):
 
         r3 = Rectangle(8, 7, 0, 0, 12)
         self.assertEqual(r3.area(), 56)
+
+    def test_display(self):
+        """This tests the display method."""
+        r = Rectangle(4, 6)
+        expected_output = "####\n####\n####\n####\n####\n####\n"
+        
+        # Redirect stdout to capture print output
+        captured_output = StringIO()
+        sys.stdout = captured_output
+        r.display()
+        sys.stdout = sys.__stdout__  # Reset redirect
+
+        self.assertEqual(captured_output.getvalue(), expected_output)
+
+        # Test another rectangle
+        r2 = Rectangle(2, 2)
+        expected_output2 = "##\n##\n"
+
+        captured_output2 = StringIO()
+        sys.stdout = captured_output2
+        r2.display()
+        sys.stdout = sys.__stdout__
+
+        self.assertEqual(captured_output2.getvalue(), expected_output2)
 
     def test_invalid_width(self):
         """This tests invalid width."""
