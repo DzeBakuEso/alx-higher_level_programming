@@ -1,23 +1,21 @@
 #!/usr/bin/python3
-"""This module defines the Rectangle class."""
-
-from models.base import Base
+from models.base import Base  # Ensure this line is present
 
 
 class Rectangle(Base):
-    """This class represents a rectangle."""
+    """This represents a rectangle that inherits from Base."""
 
     def __init__(self, width, height, x=0, y=0, id=None):
-        """This initializes a new Rectangle."""
-        self.width = width  # Will call the setter and validate
-        self.height = height  # Will call the setter and validate
-        self.x = x  # Will call the setter and validate
-        self.y = y  # Will call the setter and validate
+        """This initializes the rectangle."""
         super().__init__(id)
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
 
     @property
     def width(self):
-        """This gets the width."""
+        """This returns the width."""
         return self.__width
 
     @width.setter
@@ -31,7 +29,7 @@ class Rectangle(Base):
 
     @property
     def height(self):
-        """This gets the height."""
+        """This returns the height."""
         return self.__height
 
     @height.setter
@@ -45,12 +43,12 @@ class Rectangle(Base):
 
     @property
     def x(self):
-        """This gets the x position."""
+        """This returns the x coordinate."""
         return self.__x
 
     @x.setter
     def x(self, value):
-        """This sets the x position."""
+        """This sets the x coordinate."""
         if not isinstance(value, int):
             raise TypeError("x must be an integer")
         if value < 0:
@@ -59,12 +57,12 @@ class Rectangle(Base):
 
     @property
     def y(self):
-        """This gets the y position."""
+        """This returns the y coordinate."""
         return self.__y
 
     @y.setter
     def y(self, value):
-        """This sets the y position."""
+        """This sets the y coordinate."""
         if not isinstance(value, int):
             raise TypeError("y must be an integer")
         if value < 0:
@@ -72,14 +70,18 @@ class Rectangle(Base):
         self.__y = value
 
     def area(self):
-        """This calculates the area of the rectangle."""
+        """This returns the area of the rectangle."""
         return self.width * self.height
 
     def display(self):
-        """This prints the rectangle using the # character."""
-        for _ in range(self.height):
-            print("#" * self.width)
+        """This prints the rectangle using the character #."""
+        for i in range(self.y):
+            print()
+        for i in range(self.height):
+            print(" " * self.x + "#" * self.width)
 
     def __str__(self):
         """This returns a string representation of the rectangle."""
-        return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
+        return (f"[Rectangle] ({self.id}) "
+                f"{self.x}/{self.y} - "
+                f"{self.width}/{self.height}")
