@@ -1,4 +1,4 @@
-i-- Script to convert the hbtn_0c_0 database and its contents to UTF8 (utf8mb4 with collate utf8mb4_unicode_ci).
+-- Script to convert the hbtn_0c_0 database and its contents to UTF8 (utf8mb4 with collate utf8mb4_unicode_ci).
 
 -- Step 1: Select the database.
 USE hbtn_0c_0;
