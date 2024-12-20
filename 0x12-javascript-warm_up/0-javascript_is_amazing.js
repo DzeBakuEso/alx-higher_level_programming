@@ -1,5 +1,5 @@
 #!/usr/bin/node
 
-/* simple print statemnet*/
+/* simple print statemnet */
 const myVar = 'javaScript is amazing';
 console.log(myVar);
