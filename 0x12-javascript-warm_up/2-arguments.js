@@ -1,5 +1,4 @@
 #!/usr/bin/node
-
 /* Exclude the first two elements (script name and node) */
 const args = process.argv.length - 2;
 
