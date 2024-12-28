@@ -3,12 +3,12 @@ import MySQLdb
 import sys
 
 if __name__ == "__main__":
-    """ Get arguments passed to the script: MySQL username, password, & database name """
+    """ Get argetns passd to script: MySQL usname, passwd, & datbse name """
     username = sys.argv[1]
     passwd = sys.argv[2]
     db_name = sys.argv[3]
 
-    """ Connect to MySQL server running on localhost at port 3306 with utf8 charset """
+    """ Cnnct to MySQL servr runnng on loclhst at port 3306 wth utf8 chset """
     db = MySQLdb.connect(
         host="localhost",
         port=3306,
