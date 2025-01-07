@@ -1,9 +1,14 @@
 #!/usr/bin/python3
+"""
+Displays all values in the states table of hbtn_0e_0_usa
+where name matches the argument (safe from SQL injection).
+"""
+
 import MySQLdb
 import sys
 
 if __name__ == "__main__":
-    # Get MySQL credentials and state name from arguments
+    # Retrieve command-line arguments
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
@@ -22,7 +27,7 @@ if __name__ == "__main__":
     # Create a cursor to execute queries
     cursor = db.cursor()
 
-    # Use parameterized query to prevent SQL injection
+    # Use a parameterized query to prevent SQL injection
     query = "SELECT id, name FROM states WHERE name = %s ORDER BY id ASC"
     cursor.execute(query, (state_name,))
 
