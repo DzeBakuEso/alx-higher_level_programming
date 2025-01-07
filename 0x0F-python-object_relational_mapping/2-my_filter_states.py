@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-Displays all values in the states table where name matches the argument.
+Displays all values in the states table of hbtn_0e_0_usa
+where name matches the argument.
 Arguments: mysql username, mysql password, database name, and state name.
 """
 
@@ -27,14 +28,14 @@ if __name__ == "__main__":
     # Create a cursor object to execute queries
     cursor = db.cursor()
 
-    # Use parameterized queries to avoid SQL injection
+    # Use `format` to construct the query (to adhere to project requirement)
     query = """
     SELECT id, name
     FROM states
-    WHERE name = %s
+    WHERE name LIKE BINARY '{}'
     ORDER BY id ASC
-    """
-    cursor.execute(query, (state_name,))
+    """.format(state_name)
+    cursor.execute(query)
 
     # Fetch and print the results
     states = cursor.fetchall()
