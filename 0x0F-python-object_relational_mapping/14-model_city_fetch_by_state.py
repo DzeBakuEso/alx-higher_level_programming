@@ -3,19 +3,15 @@
 Fetches and lists all City objects from the database hbtn_0e_14_usa.
 """
 import sys
-import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from model_state import Base, State  # Assuming State model is in model_state.py
-
-# Add the parent directory to the Python path so that 'models' is found
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from models.city import city  # Now correctly pointing to models.city
+from model_state import Base, State
+from model_city import City  # Import the City model from model_city
 
 if __name__ == "__main__":
     # Ensure correct number of arguments
     if len(sys.argv) < 4:
-        print("Usage: ./<script_name> <mysql_username> <mysql_password> <database_name>")
+        print("Usage: ./14-model_city_fetch_by_state.py <mysql_username> <mysql_password> <database_name>")
         sys.exit(1)
 
     # Create an engine to connect to the MySQL server
