@@ -1,9 +1,14 @@
 #!/usr/bin/python3
+"""
+Lists all cities from the database hbtn_0e_4_usa, showing city id, city name,
+and state name in ascending order by city id.
+"""
+
 import MySQLdb
 import sys
 
 if __name__ == "__main__":
-    # Get MySQL credentials from command-line arguments
+    # Retrieve command-line arguments
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
@@ -21,7 +26,7 @@ if __name__ == "__main__":
     # Create a cursor to execute the query
     cursor = db.cursor()
 
-    # Query to retrieve city details along with their corresponding state names
+    # SQL query to fetch city details with corresponding state names
     query = """
     SELECT cities.id, cities.name, states.name
     FROM cities
