@@ -1,9 +1,13 @@
 #!/usr/bin/python3
+"""
+Lists all cities of a specified state from the database hbtn_0e_4_usa.
+"""
+
 import MySQLdb
 import sys
 
 if __name__ == "__main__":
-    # Get MySQL credentials and state name from command-line arguments
+    # Retrieve MySQL credentials and state name from command-line arguments
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
@@ -22,7 +26,7 @@ if __name__ == "__main__":
     # Create a cursor to execute the query
     cursor = db.cursor()
 
-    # Query to retrieve all cities in the specified state (SQL injection safe)
+    # SQL query to fetch cities in the given state (SQL injection safe)
     query = """
     SELECT cities.name
     FROM cities
@@ -32,7 +36,7 @@ if __name__ == "__main__":
     """
     cursor.execute(query, (state_name,))
 
-    # Fetch and format results
+    # Fetch results and format them
     cities = cursor.fetchall()
     city_names = [city[0] for city in cities]
     print(", ".join(city_names))
@@ -40,3 +44,4 @@ if __name__ == "__main__":
     # Close the cursor and connection
     cursor.close()
     db.close()
+
