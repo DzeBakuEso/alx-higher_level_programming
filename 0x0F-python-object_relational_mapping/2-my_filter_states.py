@@ -1,13 +1,13 @@
 #!/usr/bin/python3
+"""
+Displays all values in the states table where name matches the argument.
+Arguments: mysql username, mysql password, database name, and state name.
+"""
+
 import MySQLdb
 import sys
 
 if __name__ == "__main__":
-    """
-    Display all values in the states table where name matches the argument.
-    Arguments: mysql username, mysql password, database name, and state name.
-    """
-
     # Retrieve command-line arguments
     username = sys.argv[1]
     password = sys.argv[2]
@@ -27,9 +27,14 @@ if __name__ == "__main__":
     # Create a cursor object to execute queries
     cursor = db.cursor()
 
-    # Use `format` to safely include user input in the query
-    query = "SELECT id, name FROM states WHERE name LIKE BINARY '{}' ORDER BY id ASC".format(state_name)
-    cursor.execute(query)
+    # Use parameterized queries to avoid SQL injection
+    query = """
+    SELECT id, name
+    FROM states
+    WHERE name = %s
+    ORDER BY id ASC
+    """
+    cursor.execute(query, (state_name,))
 
     # Fetch and print the results
     states = cursor.fetchall()
